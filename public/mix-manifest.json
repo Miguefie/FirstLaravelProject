@@ -1,0 +1,12 @@
+{
+    "/js/vendor.js": "/js/vendor.js",
+    "/js/app.js": "/js/app.js",
+    "/css/app.css": "/css/app.css",
+    "/js/manifest.js": "/js/manifest.js",
+    "/css/homepage.css": "/css/homepage.css",
+    "/js/homepage.js": "/js/homepage.js",
+    "/css/login.css": "/css/login.css",
+    "/js/login.js": "/js/login.js",
+    "/js/gestao.js": "/js/gestao.js",
+    "/css/gestao.css": "/css/gestao.css"
+}
