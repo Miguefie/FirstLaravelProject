@@ -23,6 +23,8 @@ class ColaboradoresController extends Controller
                 'telefone' => $telefone,
                 'email' => $email
             ]);
+
+            return $this->selectColaboradores();
         }
         catch (QueryException $e){
 
