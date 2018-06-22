@@ -42,5 +42,9 @@ Route::get('/gestao', function()
     return view('gestao');
 })->name('gestao');
 
+Route::get('/colaboradores','\App\Http\Controllers\ColaboradoresController@selectColaboradores')->name('colaboradores');
+
+Route::post('/colaboradores', '\App\Http\Controllers\ColaboradoresController@insertColaboradores');
+
 
 Route::get('/home', 'HomeController@index')->name('home');

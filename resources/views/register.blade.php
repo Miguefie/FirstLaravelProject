@@ -7,7 +7,7 @@
 
 @extends('layouts.app')
 
-
+@section('content')
 
 <link href="{{asset('/css/login.css')}}" rel="stylesheet" />
 <script src='https://www.google.com/recaptcha/api.js'></script>
@@ -91,7 +91,6 @@
 
 
 
-<script src="{{asset('assets/js/login.js')}}"></script>
 <script>
     $('.js-tilt').tilt({
         scale: 1.1
@@ -105,7 +104,7 @@
         }
     };
 </script>
-
+@endsection
 
 
 

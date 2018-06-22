@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
+<script src="{{asset('/js/login.js')}}"></script>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,4 +14,8 @@
     <body>
         @yield('content')
     </body>
+
+    <script src="{{asset('/js/manifest.js')}}"></script>
+    <script src="{{asset('/js/vendor.js')}}"></script>
+
 </html>

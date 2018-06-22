@@ -1,5 +1,4 @@
 let mix = require('laravel-mix');
-
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -8,11 +7,8 @@ let mix = require('laravel-mix');
  | Mix provides a clean, fluent API for defining some Webpack build steps
  | for your Laravel application. By default, we are compiling the Sass
  | file for the application as well as bundling up all the JS files.
- |
+ |np
  */
-
-mix.extract(['bootstrap', 'jquery']);
-
 mix.js('resources/assets/js/app.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css');
 
@@ -27,7 +23,7 @@ mix.styles([
 
 mix.scripts([
     'resources/assets/js/jquery-ui-1.10.4.custom.min.js',
-    'resources/assets/js/bootstrap.min.js',
+    'resources/assets/js/bootstrap.js',
     'resources/assets/js/gsdk-checkbox.js',
     'resources/assets/js/gsdk-radio.js',
     'resources/assets/js/gsdk-bootstrapswitch.js',
@@ -62,7 +58,6 @@ mix.scripts([
 mix.scripts([
     'resources/assets/js/jquery-3.2.1.min.js',
     'resources/assets/js/gestao/jquery-ui.min.js',
-    'resources/assets/js/bootstrap.min.js',
     'resources/assets/js/gestao/raphael.min.js',
     'resources/assets/js/gestao/morris.min.js',
     'resources/assets/js/gestao/jquery.knob.min.js',

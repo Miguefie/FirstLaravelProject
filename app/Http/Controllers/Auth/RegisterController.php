@@ -49,8 +49,11 @@ class RegisterController extends Controller
         $password = $request->post('password');
         $email = $request->post('email');
         $query = User::query();
-
-
+        /*$validator = $this->validator([$name,$username,$password,$email]);
+        if($validator->fails())
+        {
+            return response('FAIL');
+        }*/
        try{
            $query->insert([
                'email' => $email,
@@ -86,7 +89,7 @@ class RegisterController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
             'username' => 'required|string|max:60|unique',
-            'nivelAcesso' => 'required|integer'
+            'nivelAcesso' => 'integer'
         ]);
     }
 

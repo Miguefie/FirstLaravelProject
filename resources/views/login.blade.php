@@ -72,11 +72,7 @@
 	</div>
 
 
-
-  <script src="{{mix('/js/manifest.js')}}"></script>
-  <script src="{{mix('/js/vendor.js')}}"></script>
-  <script src="{{mix('assets/js/login.js')}}"></script>
-
+  <script src="{{asset('/js/login.js')}}"></script>
         <script>
             $('.js-tilt').tilt({
                 scale: 1.1
