@@ -21,7 +21,6 @@ Route::get('/', function () {
 
 Route::get('/register', function (){
     return view('register');
-
 })->name('register');
 
 Route::post('/register', '\App\Http\Controllers\Auth\RegisterController@register');
@@ -45,6 +44,10 @@ Route::get('/gestao', function()
 Route::get('/colaboradores','\App\Http\Controllers\ColaboradoresController@selectColaboradores')->name('colaboradores');
 
 Route::post('/colaboradores', '\App\Http\Controllers\ColaboradoresController@insertColaboradores');
+
+Route::get('/colaboradores/{id}', '\App\Http\Controllers\ColaboradoresController@deleteColaboradores')->name('colaboradoresApaga');
+
+Route::post('/colaboradores/{id}','\App\Http\Controllers\ColaboradoresController@updateColaboradores')->name('colaboradoresEditar');
 
 
 Route::get('/home', 'HomeController@index')->name('home');

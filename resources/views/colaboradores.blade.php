@@ -152,16 +152,16 @@
                             <td>{{ $colaborador->email }}</td>
 
                             <td>
-                                <a class="btn btn-block btn-success" href="#editar" data-toggle="modal">
+                                <a class="btn btn-block btn-success" href="#editar{{ $colaborador->id }}" data-toggle="modal">
                                     <i class="fa fa-fw fa-edit"></i>
                                 </a>
-                                <a href="#delete" data-toggle="modal">
+                                <a href="#delete{{ $colaborador->id }}" data-toggle="modal">
                                     <button type="button" class="btn btn-block btn-danger"> <i class="fa fa-fw fa-trash"></i> </button>
                                 </a>
 
                             </td>
 
-                            <div class="modal fade" id="editar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="editar{{ $colaborador->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -169,7 +169,8 @@
                                             <h4 class="modal-title" id="myModalLabel">Inserir Colaborador</h4>
                                         </div>
                                         <div class="modal-body">
-                                            <form method="POST" action="colaboradores_editar.php" enctype="multipart/form-data">
+                                            <form method="POST" action="{{ route('colaboradoresEditar', ['teste' => $colaborador->id]) }}" enctype="multipart/form-data">
+                                                @csrf
                                                 <div class="col-sm-12 col-md-12">
                                                     <div class="form-group">
                                                         <label>Nome Colaboradores</label>
@@ -197,7 +198,7 @@
                             </div>
 
 
-                            <div id="delete" class="modal fade"  role="dialog">
+                            <div id="delete{{ $colaborador->id }}" class="modal fade"  role="dialog">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -205,12 +206,14 @@
                                             <h4 class="modal-title" id="myModalLabel">Eliminar Colaborador</h4>
                                         </div>
                                         <div class="modal-body">
-                                            <form method="POST" action="colaboradores_apaga.php" enctype="multipart/form-data">
-                                                <label> Tem a Certeza Que Quer Eliminar o Colaborador:  </label>
+                                            <form method="GET" action="{{ route('colaboradoresApaga', ['id' => $colaborador->id]) }}" enctype="multipart/form-data">
+                                                @csrf
+                                                <label> Tem a Certeza Que Quer Eliminar o Colaborador: {{ $colaborador->nome }} </label>
+
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default btn-simple" data-dismiss="modal">Fechar</button>
-                                            <a type="submit" href="colaboradores_apaga.php" class="btn btn-danger btn-simple">Eliminar</a>
+                                            <button type="submit" class="btn btn-danger btn-simple">Eliminar</button>
                                         </div>
                                         </form>
                                     </div>

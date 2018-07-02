@@ -45,15 +45,19 @@ class RegisterController extends Controller
     public function register(Request $request)
     {
         $name = $request->post('name');
-        $username = $request->post('user');
+        $username = $request->post('username');
         $password = $request->post('password');
         $email = $request->post('email');
         $query = User::query();
-        /*$validator = $this->validator([$name,$username,$password,$email]);
+        $validator = $this->validator($request->all());
         if($validator->fails())
         {
-            return response('FAIL');
-        }*/
+            return response($validator->messages());
+        }
+        else
+        {
+            return response('DID It');
+        }
        try{
            $query->insert([
                'email' => $email,
@@ -87,7 +91,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
+            'password' => 'required|string|min:6',
             'username' => 'required|string|max:60|unique',
             'nivelAcesso' => 'integer'
         ]);

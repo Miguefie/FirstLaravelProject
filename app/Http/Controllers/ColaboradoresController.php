@@ -1,8 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Http\Controllers\Controller;
-use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -41,5 +39,27 @@ class ColaboradoresController extends Controller
         $colaboradores = DB::table('colaboradores')->get()->all();
 
         return view('colaboradores', ['colabs' => $colaboradores]);
+    }
+
+    public function deleteColaboradores($id)
+    {
+        DB::table('colaboradores')->where('id', '=',$id)->delete();
+        return redirect("colaboradores");
+    }
+
+    public function updateColaboradores(Request $response, $id)
+    {
+        $nome = $response->post('nome');
+        $nif = $response->post('nif');
+        $telefone = $response->post('telefone');
+        $email = $response->post('email');
+
+        DB::table('colaboradores')->where('id', '=', $id)->update([
+            'nome' => $nome,
+            'nif' => $nif,
+            'telefone' => $telefone,
+            'email' => $email
+        ]);
+        return redirect("colaboradores");
     }
 }
